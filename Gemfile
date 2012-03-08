@@ -10,8 +10,6 @@ gem 'therubyracer'
 gem 'json'
 gem 'pg'
 gem 'prawn'
-gem 'mongrel'
-gem "vidibus-routing_error"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
