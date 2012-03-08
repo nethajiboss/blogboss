@@ -1,6 +1,6 @@
 class CreateArticlesCategories < ActiveRecord::Migration
   def self.up
-    create_table :articles_categories, id=>false do |t|
+    create_table :articles_categories do |t|
       t.references :article
       t.references :category
     end
