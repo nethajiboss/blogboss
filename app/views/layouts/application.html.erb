@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+function message() {
+document.getElementById('msg').innerHTML="please wait..."
+$('#container').hide();
+}
+</script>
+<link href="/assets/rails.png" rel="icon">
+<title>Blog</title>
+<%= stylesheet_link_tag :application %>
+<%= javascript_include_tag 'application', 'rails', 'jquery-1.4.2.min.js' %>
+<%= javascript_include_tag 'jquery' %>
+<%= csrf_meta_tag %>
+</head>
+<h2 id="msg"></h2>
+<body>
+<div id="container">
+<div id="header">
+<h1><%= link_to "My Blog", root_path %></h1>
+<div id="user_bar">
+<% if logged_in? %>
+<%= "Hi #{session[:user_id].username}" %>
+<a href="javascript:location.reload(true)">Refresh</a> |
+<%= link_to "New Article", new_article_path %> |
+<%= link_to "Ajax Entry", entries_path %> |
+<%= link_to "Edit Password", edit_user_path(current_user) %> |
+<%= link_to "Logout", logout_path, :onclick=>"message()" %>
+<% else %>
+<%= link_to "Login", login_path, :onclick=>"message()" %>
+<% end %>
+</div>
+</div>
+<div id="main">
+<%= content_tag(:p, notice, :class => 'notice') if notice.present? %>
+<%= content_tag(:p, alert, :class => 'alert') if alert.present? %>
+<%= yield %>
+</div>
+<div id="footer">
+A simple blog built for the beginners by 
+<a href="http://nethajiboss.blogspot.in" target=new>nethajiboss.blogspot.in</a>
+</div>
+</div>
+</body>
+</html>
+

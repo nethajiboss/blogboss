@@ -1,0 +1,18 @@
+  <b>Name:</b>
+  <%= @entry.name %><br>
+  <b>Address:</b>
+  <%= @entry.address %><br>
+  <b>Phone:</b>
+  <%= @entry.phone %><br>
+  <b>Email:</b>
+  <%= @entry.email %>
+<a href="#" id="btn4">Hide the showing details</a>
+
+<script type="text/javascript">
+   $(document).ready(function(){
+    $("#show_link").show();   
+    $("#btn4").click(function(){
+    $("#show_link").hide("slow");
+    }); 
+  });
+</script>

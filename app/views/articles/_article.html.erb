@@ -1,0 +1,15 @@
+<% if !@articles.nil?%>
+<% @articles.each do |article| %>
+<h3>
+<%= link_to article.title, article %>
+<% if article.owned_by? current_user %>
+<span class='actions'>
+<%= link_to "Edit", edit_article_path(article) %>
+<%= link_to "Delete", article, :confirm => "Are you sure?", :method => :delete %>
+</span>
+<% end %>
+</h3>
+<%= time_ago_in_words(article.created_at)%> ago
+<%= simple_format article.body %>
+<% end %>
+<p><%= will_paginate @articles %></p><% end %>

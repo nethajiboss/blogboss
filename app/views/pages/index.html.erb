@@ -1,0 +1,46 @@
+<h1>Listing pages</h1>
+
+<table id="pages">
+  <tr>
+    <th>Title</th>
+    <th>Body</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pages.each do |page| %>
+  <tr id="one_page">
+    <td><%= page.title %></td>
+    <td><%= page.body %></td>
+    <td><%= link_to 'Show', page, :remote=>true %></td>
+    <td><%= link_to 'Edit', edit_page_path(page), :remote=>true, :format=>:js %></td>
+    <td><%= link_to 'Destroy', page, :confirm => 'Are you sure?', :remote => true, :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<div id="show_page">
+</div>
+</br>
+<div id="new_page">
+<h2>FORM </h2>
+<%= render 'form'%>
+<a href="#" id="hide_form">Hide</a>
+</div>
+<a href="#" id="new_link">New Page</a>
+
+<script type="text/javascript">
+$(document).ready(function() {
+$("#new_page").hide();
+$("#new_link").click(function() {
+$("#new_page").show('slow');
+$("#new_link").hide('slow');
+});
+$("#hide_form").click(function() {
+$("#new_page").hide('slow');
+$("#new_link").show('slow');
+});
+});
+</script>

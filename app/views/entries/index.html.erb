@@ -1,0 +1,43 @@
+<h1>Listing entries</h1>
+<table id="entries" border=1>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Action</th>
+    <th>Action</th>
+    <th>Action</th>
+  </tr>
+<% @entries.each do |entry| %>
+  <%= render entry %>
+<% end %>
+</table>
+<div id="show_link">
+</div>
+<br />
+
+<a href="#" id="btn1">Entry Form</a>
+<div id="form">
+<h2>Entry Form</h2>
+  <%= render :partial =>"form" %>
+  <a href="#" id="btn2">Hide</a>
+</div>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+$("#form").hide();
+  $("#btn1").click(function(){
+    $("#form").show("slow");
+    $("#btn1").hide("slow");
+    });
+     $("#btn2").click(function(){
+    $("#form").hide("slow");
+    $("#btn1").show("slow");
+    }); 
+    $("#edit_link").click(function(){
+    $("#form").show("slow");
+    });
+  });
+</script>

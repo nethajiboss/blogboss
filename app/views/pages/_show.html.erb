@@ -1,0 +1,14 @@
+  <b>Title:</b>
+  <%= @page.title %>
+<br/>
+  <b>Body:</b>
+  <%= @page.body %>
+  <a href="#" id="hide_show">Hide the show</a>
+  
+<script type="text/javascript">
+$(document).ready(function() {
+$("#hide_show").click(function() {
+$("#show_page").hide('slow');
+});
+});
+</script>

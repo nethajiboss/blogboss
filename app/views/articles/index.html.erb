@@ -1,0 +1,15 @@
+<% javascript_include_tag "pagination"%>
+<h1>Listing articles</h1>
+<div id="articles">
+<%= render 'article' %>
+</div>
+<%= form_tag articles_path, :method => 'get', :id => "entries_search" do %>
+  <p>
+    <%= label_tag "search" %>
+    <%= text_field_tag :search, params[:search] %>
+  </p>
+<% end %><br>
+
+
+
+

@@ -1,0 +1,7 @@
+  <tr id="one_page">
+    <td><%= page.title %></td>
+    <td><%= page.body %></td>
+    <td><%= link_to 'Show', page %></td>
+    <td><%= link_to 'Edit', edit_page_path(page) %></td>
+    <td><%= link_to 'Destroy', page, :confirm => 'Are you sure?', :remote => true, :method => :delete %></td>
+  </tr>

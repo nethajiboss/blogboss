@@ -1,0 +1,4 @@
+$('<%= escape_javascript(render(:partial => @entry))%>').appendTo('#entries');
+<% @entry = Entry.new %>
+$(".new_entry").replaceWith("<%= escape_javascript(render(:partial => "form"))%>")
+
