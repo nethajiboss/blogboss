@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.search(params[:search]).paginate :page=>params[:page], :order=>'created_at desc' ,:per_page => 2
+    @articles = Article.search(params[:search]).paginate :page=>params[:page], :order=>'created_at desc' ,:per_page => 4
         respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => articles_path }
