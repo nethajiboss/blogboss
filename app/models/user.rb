@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
   has_many :articles, :order => 'published_at DESC, title ASC', :dependent => :nullify
   has_many :replies, :through => :articles, :source => :comments
   before_save :encrypt_new_password
-  
+  scope :user_article, joins(:articles => :comments)
+  scope :right_out, joins('right outer join articles on users.id=articles.user_id').select("users.username,articles.title")
   def self.authenticate(name, password)
     user = where("username = ? OR email = ?",name, name).first
     return user if user && user.authenticated?(password)

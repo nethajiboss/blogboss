@@ -12,7 +12,7 @@ class Article < ActiveRecord::Base
   scope :recent, lambda{published.where("articles.published_at > ?", 2.days.ago.to_date)}
   scope :where_title, lambda{ |term| where("articles.title LIKE ?", "%#{term}%")}
   def published?
-    published_at.present?
+    published_at.present?   
   end
   
   def owned_by?(owner)
