@@ -21,7 +21,7 @@ Blog::Application.configure do
       config.action_mailer.sendmail_settings = {
      :location => '/usr/sbin/sendmail',
      :arguments => '-i -t'
-  # }
+   }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   # Generate digests for assets URLs
